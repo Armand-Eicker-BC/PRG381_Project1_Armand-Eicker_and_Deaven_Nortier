@@ -12,11 +12,11 @@ public class Datahandler {
     public void RegisterCustomer(Customer cust)throws IOException{
         try 
         {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/my_students","root","");
+         
+            Connection con=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=BookingSys;integratedSecurity=true");
             Statement stmt=con.createStatement();
-            sqlQ = "INSERT INTO Customers VALUES("+ cust.GetTitle() +","+ cust.GetName() +"," + cust.GetSName() +"," + cust.GetNum() +"," + cust.GetMail() +")";
-            stmt.executeQuery(sqlQ);
+            sqlQ = "INSERT INTO Customers VALUES('"+ cust.GetTitle() +"','"+ cust.GetName() +"','" + cust.GetSName() +"'," + cust.GetNum() +",'" + cust.GetMail() +"')";
+            stmt.executeUpdate(sqlQ);
         } 
         catch (Exception e) 
         {
