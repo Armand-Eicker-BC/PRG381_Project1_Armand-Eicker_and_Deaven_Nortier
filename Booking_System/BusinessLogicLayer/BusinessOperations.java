@@ -35,6 +35,6 @@ public class BusinessOperations {
 
         long difference = today.until(eDate, ChronoUnit.DAYS);
 
-        return difference;   
+        return difference;
     }
 }
