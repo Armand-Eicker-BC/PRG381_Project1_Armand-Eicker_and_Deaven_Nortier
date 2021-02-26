@@ -8,10 +8,10 @@ public class Booking {
     private String venueAddress;
     private int numOfPeople;
     private String foodMenu;
-    private boolean decoration;
+    private String decoration;
 
     //Constructor
-    public Booking(String ETP, String ED, String ETM, String VA, int NOP, String FM, boolean D) {
+    public Booking(String ETP, String ED, String ETM, String VA, int NOP, String FM, String D) {
         this.eventType = ETP;
         this.eventDate = ED;
         this.eventTime = ETM;
@@ -70,11 +70,11 @@ public class Booking {
         this.foodMenu = foodMenu;
     }
 
-    public boolean isDecoration() {
+    public String getDecoration() {
         return decoration;
     }
 
-    public void setDecoration(boolean decoration) {
+    public void setDecoration(String decoration) {
         this.decoration = decoration;
     }
 
