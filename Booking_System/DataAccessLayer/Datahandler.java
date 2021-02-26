@@ -118,4 +118,21 @@ public class Datahandler {
             connect.close();
         }
     }
+
+    //Method to insert decoration details into the Decor table
+    public void insertDecorations(String deco) throws Exception{
+        try {
+            connect = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=BookingSys;integratedSecurity=true");
+            statement = connect.createStatement();
+            sqlQ = "INSERT INTO Decor VALUES ('" + deco + "')";
+            statement.executeUpdate(sqlQ);
+        }
+        catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        finally {
+            connect.close();
+        }
+         
+    }
 }
