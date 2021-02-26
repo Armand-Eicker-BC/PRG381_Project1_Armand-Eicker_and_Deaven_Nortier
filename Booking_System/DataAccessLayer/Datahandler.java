@@ -2,9 +2,6 @@ package Booking_System.DataAccessLayer;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.io.*;
 
 import Booking_System.BusinessLogicLayer.Customer;
 
@@ -23,7 +20,7 @@ public class Datahandler {
         } 
         catch (Exception e) 
         {
-            //TODO: handle exception
+            System.out.println(e.toString());
         }
     }
 }
