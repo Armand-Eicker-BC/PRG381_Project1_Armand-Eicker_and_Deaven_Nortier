@@ -29,35 +29,13 @@ public class Datahandler {
         }     
     }   
 
-    // Declaring variables to execute mySQL queries
-   
-
-    //Method to insert customer details into the Customer table
-    public void insertCustomer(Customer cust) throws Exception{
-
-        try{
-
-            connect = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=BookingSys;integratedSecurity=true");
-            statement = connect.createStatement();
-            sqlQ = "INSERT INTO Customers VALUES('" + cust.GetTitle() + "','" + cust.GetName() + "','" + cust.GetSName() + "','" + cust.GetNum() + "','" + cust.GetMail() + "')";
-            statement.executeUpdate(sqlQ);
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        } 
-        finally{
-            connect.close();
-        }  
-    }
-
-
     //Method to insert booking details into the Bookings table
     public void insertBooking(Booking book, int cID) throws Exception {
         try{
 
             connect = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=BookingSys;integratedSecurity=true");
             statement = connect.createStatement();
-            sqlQ = "INSERT INTO dbo.Bookings VALUES ('" + cID + "','" + book.getEventType() + "','" + book.getEventDate() + "','" + book.getVenueAddress() + "','" + book.getNumOfPeople() + "','" + book.getDecoration() + "')";
+            sqlQ = "INSERT INTO Bookings VALUES (" + cID + ",'" + book.getEventType() + "','" + book.getEventDate() + "','" + book.getVenueAddress() + "','" + book.getNumOfPeople() + "','" + book.getDecoration() + "')";
             statement.executeUpdate(sqlQ);
         }
         catch (Exception e){
@@ -75,7 +53,7 @@ public class Datahandler {
 
             connect = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=BookingSys;integratedSecurity=true");
             statement = connect.createStatement();
-            sqlQ = "UPDATE dbo.BookingFood SET MenuID = " + mID + " WHERE = " + bID;
+            sqlQ = "UPDATE BookingFood SET MenuID = " + mID + " WHERE = " + bID;
             statement.executeUpdate(sqlQ);
         }
         catch (Exception e){
