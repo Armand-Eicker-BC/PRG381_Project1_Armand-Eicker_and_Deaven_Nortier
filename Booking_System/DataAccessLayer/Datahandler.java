@@ -29,8 +29,7 @@ public class Datahandler {
         } 
         finally{
             connect.close();
-        }
-        
+        }  
     }
 
 
