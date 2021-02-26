@@ -1,26 +1,29 @@
 package Booking_System.BusinessLogicLayer;
 
 public class Booking {
-    String eventType;
-    String eventDate;
-    String eventTime;
-    String venueAddress;
-    int phoneNumber;
-    int numOfPeople;
-    String foodMenu;
-    boolean decoration;
+    //Declare encapsulated attributes
+    private String eventType;
+    private String eventDate;
+    private String eventTime;
+    private String venueAddress;
+    private int phoneNumber;
+    private int numOfPeople;
+    private String foodMenu;
+    private boolean decoration;
 
-    public Booking(String eventType, String eventDate, String eventTime, String venueAddress, int phoneNumber, int numOfPeople, String foodMenu, boolean decoration) {
-        this.eventType = eventType;
-        this.eventDate = eventDate;
-        this.eventTime = eventTime;
-        this.venueAddress = venueAddress;
-        this.phoneNumber = phoneNumber;
-        this.numOfPeople = numOfPeople;
-        this.foodMenu = foodMenu;
-        this.decoration = decoration;
+    //Constructor
+    public Booking(String ETP, String ED, String ETM, String VA, int PN, int NOP, String FM, boolean D) {
+        this.eventType = ETP;
+        this.eventDate = ED;
+        this.eventTime = ETM;
+        this.venueAddress = VA;
+        this.phoneNumber = PN;
+        this.numOfPeople = NOP;
+        this.foodMenu = FM;
+        this.decoration = D;
     }
 
+    //Creating Get and Set Methods
     public String getEventType() {
         return eventType;
     }
@@ -84,5 +87,7 @@ public class Booking {
     public void setDecoration(boolean decoration) {
         this.decoration = decoration;
     }
+
+    
        
 }
