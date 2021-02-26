@@ -41,7 +41,7 @@ public class Datahandler {
 
             statement = connect.createStatement();
 
-            String query = "INSERT INTO dbo.Bookings VALUES ('" + cID + "','" + book.getEventType() + "','" + book.getEventDate() + "','" + book.getVenueAddress() + "','" + book.getNumOfPeople() + "','" + book.isDecoration() + "')";
+            String query = "INSERT INTO dbo.Bookings VALUES ('" + cID + "','" + book.getEventType() + "','" + book.getEventDate() + "','" + book.getVenueAddress() + "','" + book.getNumOfPeople() + "','" + book.getDecoration() + "')";
 
             resultSet = statement.executeQuery(query);
         }
