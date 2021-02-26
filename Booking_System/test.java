@@ -6,8 +6,9 @@ import Booking_System.BusinessLogicLayer.Customer;
 import Booking_System.DataAccessLayer.Datahandler;
 
 public class test {
-    public static void main(String[] args) {
-        Customer cs = new Customer("Mr", "Armand", "Eicker", "eickerarmand@gmail.com", 0711234567);
+    public static void main(String[] args) throws Exception {
+        
+        Customer cs = new Customer("Mr", "Deaven", "Nortier", "yourself@gmail.com", 234324234);
         Datahandler d = new Datahandler();
        
         try {
