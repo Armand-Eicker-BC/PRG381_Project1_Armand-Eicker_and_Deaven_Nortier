@@ -7,6 +7,7 @@ public class Account {
     private double balanceOutstandingPercentage;
     private int customerID;
 
+    //To be completed
     public Account(int cID,double ao){
         this.customerID = cID;
         this.amountOutstanding = ao;

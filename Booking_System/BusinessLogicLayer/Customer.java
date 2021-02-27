@@ -60,6 +60,6 @@ public class Customer {
     }
 
     public String CustomertoString(Customer cs){
-        return cs.title + " " + cs.custName + " " + cs.custSurname + " " + cs.email + " " + cs.phoneNum;
+        return "Title: " + cs.title + " Name: " + cs.custName + " Surname: " + cs.custSurname + " Email: " + cs.email + " Contact Number: " + cs.phoneNum;
     }
 }
