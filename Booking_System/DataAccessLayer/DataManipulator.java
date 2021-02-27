@@ -1,10 +1,11 @@
 package Booking_System.DataAccessLayer;
 
-import java.lang.reflect.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Booking_System.BusinessLogicLayer.Booking;
 import Booking_System.BusinessLogicLayer.Customer;
@@ -32,6 +33,18 @@ public class DataManipulator {
         }
 
         return customers;
+    }
+
+    public Map<String,Booking> GetBookings() throws SQLException, Exception {
+        Map<String,Booking> bk = new HashMap<String,Booking>();
+        ResultSet rs =dh.GetBookings();
+
+        while (rs.next()) {
+            Booking book = new Booking(rs.getString("EventType"), rs.getString("EventDate"), rs.getString("EventTime"), rs.getString("Venue"), rs.getInt("NumOfPeople"),"","",dh.FindDecor(rs.getInt("Decorations")));
+            bk.put(rs.getString("BookingID"), book);
+        }
+
+        return bk;
     }
 
     public void CreateBooking(Booking book,String email) throws Exception {
@@ -97,4 +110,17 @@ public class DataManipulator {
 
         return quatities;
     }
+
+    public Map<String,String> GetMenu(int bID) throws SQLException {
+        
+        Map<String,String> Menu = new HashMap<String,String>();
+
+        ResultSet rs = dh.GetBookingFoodMenu(bID);
+        while (rs.next()) {
+            Menu.put(dh.GetFoodNames(rs.getInt(("MenuID"))), rs.getString("Quantity"));
+        }
+        return Menu;
+    }
+
+
 }

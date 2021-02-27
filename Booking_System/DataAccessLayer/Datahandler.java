@@ -183,6 +183,24 @@ public class Datahandler {
             System.out.println(e.toString());
         } 
         return null;   
-    }  
+    } 
+    
+    public String GetFoodNames(int menuID){
+        String items = "";
+        try{
+            sqlQ = "SELECT MenuName FROM FoodMenu WHERE MenuID = "+menuID+"";
+            resultSet = statement.executeQuery(sqlQ);
+            ResultSet rs = resultSet;
+            while (rs.next()) {
+                items = rs.getString("MenuName");
+            }
+             
+            return items;        
+        } 
+        catch (Exception e) {
+            System.out.println(e.toString());
+        } 
+        return items;
+    }
 
 }

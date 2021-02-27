@@ -10,7 +10,7 @@ public class Booking {
     private String foodMenu;
     private String foodQty;
     private String decoration;
-
+    
     //Constructor
     public Booking(String ETP, String ED, String ETM, String VA, int NOP, String FM,String fQ,String D) {
         this.eventType = ETP;
