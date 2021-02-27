@@ -46,6 +46,8 @@ public class Datahandler {
         return null;
     }
 
+    
+
     //Method to insert booking details into the Bookings table
     public void insertBooking(Booking book, int cID,int decorID) throws Exception {
         try{

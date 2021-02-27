@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Booking_System.BusinessLogicLayer.Account;
 import Booking_System.BusinessLogicLayer.Booking;
 import Booking_System.BusinessLogicLayer.Customer;
 
@@ -112,7 +113,7 @@ public class DataManipulator {
     }
 
     public Map<String,String> GetMenu(int bID) throws SQLException {
-        
+
         Map<String,String> Menu = new HashMap<String,String>();
 
         ResultSet rs = dh.GetBookingFoodMenu(bID);
@@ -122,5 +123,7 @@ public class DataManipulator {
         return Menu;
     }
 
-
+    public void CreateAccountinDB(Account acc){
+        //to be completed
+    }
 }

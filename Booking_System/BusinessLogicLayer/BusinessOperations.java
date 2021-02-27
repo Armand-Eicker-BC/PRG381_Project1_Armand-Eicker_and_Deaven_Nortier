@@ -1,10 +1,17 @@
 package Booking_System.BusinessLogicLayer;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import Booking_System.DataAccessLayer.DataManipulator;
 
 public class BusinessOperations {
+    DataManipulator dm;
 
+    public BusinessOperations(){
+        try {
+            dm = new DataManipulator();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     //Checks if discount should be applied
     public boolean checkDiscount(int numOfPeople){
         boolean check = false;
@@ -22,19 +29,54 @@ public class BusinessOperations {
     }
 
     //calculates a discounted price at 15% of the amount
-    public double applyDiscount(float amount){
+    public double applyDiscount(double amount){
         double discountAmount = amount - (amount * 0.15);
         return discountAmount;
     }
 
-    //calculate difference between dates
-    public long dateDifference(String eventDate){
+    public double calculatePrice(int[] MenuItemID,int[] Qty,int numOfPeople,String EventType){
+        double price = 0;
 
-        LocalDate eDate = LocalDate.parse(eventDate);
-        LocalDate today = LocalDate.now();
+        if(EventType.equalsIgnoreCase("wedding")){
+            price += 5000;
+        }
+        else if (EventType.equalsIgnoreCase("baptism")){
+            price += 1000;
+        }
+        else if (EventType.equalsIgnoreCase("year end function")){
+            price += 2500;
+        }
+        else if (EventType.equalsIgnoreCase("birthday party")){
+            price += 800;
+        }
 
-        long difference = today.until(eDate, ChronoUnit.DAYS);
+        for (int i : MenuItemID) {
+            if (MenuItemID[i] == 1) {
+                price += (150 * Qty[i]);
+            }
+            else if (MenuItemID[i] == 2) {
+                price += (50 * Qty[i]);
+            }
+            else if (MenuItemID[i] == 3) {
+                price += (100 * Qty[i]);
+            }
+            else if (MenuItemID[i] == 4) {
+                price += (80 * Qty[i]);
+            }
+        }
 
-        return difference;
+        if(checkDiscount(numOfPeople) == true){
+           price = applyDiscount(price);
+           return price;
+        }
+        else{
+            return price;
+        }
+    }
+
+    public void CreateBooking(Booking book,String email) throws Exception {
+        dm.CreateBooking(book, email);
+        Account acc = new Account(dm.FindCustomerID(email),calculatePrice(dm.SeperateMenuItems(book), dm.seperateFoodQty(book), book.getNumOfPeople(), book.getEventType()));
+        dm.CreateAccountinDB(acc);
     }
 }
