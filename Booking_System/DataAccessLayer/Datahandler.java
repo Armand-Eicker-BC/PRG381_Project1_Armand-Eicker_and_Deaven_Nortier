@@ -118,7 +118,7 @@ public class Datahandler {
         }
         return desc;
     }
-    
+
     //Method to get bookings
     public ResultSet GetBookings() throws Exception {      
         try{
@@ -184,4 +184,5 @@ public class Datahandler {
         } 
         return null;   
     }  
+
 }
