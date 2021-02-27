@@ -8,16 +8,18 @@ public class Booking {
     private String venueAddress;
     private int numOfPeople;
     private String foodMenu;
+    private String foodQty;
     private String decoration;
 
     //Constructor
-    public Booking(String ETP, String ED, String ETM, String VA, int NOP, String FM, String D) {
+    public Booking(String ETP, String ED, String ETM, String VA, int NOP, String FM,String fQ,String D) {
         this.eventType = ETP;
         this.eventDate = ED;
         this.eventTime = ETM;
         this.venueAddress = VA;
         this.numOfPeople = NOP;
         this.foodMenu = FM;
+        this.foodQty = fQ;
         this.decoration = D;
     }
 
@@ -30,8 +32,16 @@ public class Booking {
         this.eventType = eventType;
     }
 
+    public void setFoodQuatity(String fq) {
+        this.foodQty = fq;
+    }
+
     public String getEventDate() {
         return eventDate;
+    }
+
+    public String getFoodqty() {
+        return this.foodQty;
     }
 
     public void setEventDate(String eventDate) {
