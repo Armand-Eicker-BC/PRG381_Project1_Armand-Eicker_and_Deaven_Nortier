@@ -58,4 +58,8 @@ public class Customer {
     public void SetNum(int num){
         this.phoneNum = num;
     }
+
+    public String CustomertoString(Customer cs){
+        return cs.title + " " + cs.custName + " " + cs.custSurname + " " + cs.email + " " + cs.phoneNum;
+    }
 }

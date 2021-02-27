@@ -23,9 +23,9 @@ public class DataManipulator {
         }
     }
 
-    public List<Customer> GetCustomers() throws SQLException, Exception {
+    public ArrayList<Customer> GetCustomers() throws SQLException, Exception {
 
-        List<Customer> customers = new ArrayList<Customer>();
+        ArrayList<Customer> customers = new ArrayList<Customer>();
         ResultSet rs =dh.GetCustomers();
 
         while (rs.next()) {
@@ -124,6 +124,10 @@ public class DataManipulator {
     }
 
     public void CreateAccountinDB(Account acc){
+        //to be completed
+    }
+
+    public void UpdateBalance(int cID,double amount,String paymentDate){
         //to be completed
     }
 }

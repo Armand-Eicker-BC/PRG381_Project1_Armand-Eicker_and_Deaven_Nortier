@@ -10,7 +10,7 @@ public class Booking {
     private String foodMenu;
     private String foodQty;
     private String decoration;
-    
+
     //Constructor
     public Booking(String ETP, String ED, String ETM, String VA, int NOP, String FM,String fQ,String D) {
         this.eventType = ETP;
@@ -88,6 +88,8 @@ public class Booking {
         this.decoration = decoration;
     }
 
-    
+    public String BookingsToString(Booking book){
+        return "Event Type: " + book.eventType + " Event Date: " + book.eventDate + " Venue: " + book.venueAddress + " Number of People: " + book.numOfPeople + " Decor: " + book.decoration;
+    }
        
 }

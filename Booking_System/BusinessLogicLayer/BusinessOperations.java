@@ -79,4 +79,8 @@ public class BusinessOperations {
         Account acc = new Account(dm.FindCustomerID(email),calculatePrice(dm.SeperateMenuItems(book), dm.seperateFoodQty(book), book.getNumOfPeople(), book.getEventType()));
         dm.CreateAccountinDB(acc);
     }
+
+    public void MakePayment(int cID,double amount,String paymentDate){
+        dm.UpdateBalance(cID,amount,paymentDate);
+    }
 }
